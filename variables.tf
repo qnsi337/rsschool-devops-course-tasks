@@ -20,5 +20,5 @@ variable "aws_account_id" {
 
 variable "github_repo" {
   description = "GitHub repo in format owner/repo"
-  default     = "rolling-scopes-school/qnsi337-AWSDEVOPS2025Q2"
+  default     = "qnsi337/rsschool-devops-course-tasks"
 }
