@@ -1,14 +1,14 @@
 name: test-role
+
 on:
-  workflow_dispatch:
-
+  # Triggers the workflow on push or pull request events but only for the "main" branch
+  push:
+    branches: [ "main", "task_1" ]
+  pull_request:
+    branches: [ "main", "task_1" ]
 jobs:
-  test:
+  test-oidc:
     runs-on: ubuntu-latest
-    permissions:
-      id-token: write
-      contents: read
-
     steps:
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v2
@@ -16,5 +16,5 @@ jobs:
           role-to-assume: arn:aws:iam::897729101221:role/GithubActionsRole
           aws-region: us-east-1
 
-      - name: Run AWS CLI command
+      - name: Who am I
         run: aws sts get-caller-identity
