@@ -1,7 +1,6 @@
-name: test-role
+name: check-openid
 
 on:
-  # Triggers the workflow on push or pull request events but only for the "main" branch
   push:
     branches: [ "main", "task_1" ]
   pull_request:
