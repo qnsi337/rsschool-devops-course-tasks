@@ -43,12 +43,13 @@ resource "aws_iam_policy" "dynamodb_lock_policy" {
     Statement = [
       {
         Effect = "Allow",
-        Action = [
+          Action = [
           "dynamodb:GetItem",
           "dynamodb:PutItem",
           "dynamodb:DeleteItem",
           "dynamodb:UpdateItem",
-          "dynamodb:DescribeTable"
+          "dynamodb:DescribeTable",
+          "dynamodb:DescribeContinuousBackups"
         ],
         Resource = "arn:aws:dynamodb:${var.aws_region}:${var.aws_account_id}:table/${var.dynamodb_table_name}"
       }
