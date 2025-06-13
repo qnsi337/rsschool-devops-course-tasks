@@ -43,7 +43,7 @@ resource "aws_iam_policy" "dynamodb_lock_policy" {
     Statement = [
       {
         Effect = "Allow",
-          Action = [
+        Action = [
           "dynamodb:GetItem",
           "dynamodb:PutItem",
           "dynamodb:DeleteItem",
