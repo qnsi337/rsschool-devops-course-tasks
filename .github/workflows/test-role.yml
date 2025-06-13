@@ -1,0 +1,20 @@
+name: test-role
+on:
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: read
+
+    steps:
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v2
+        with:
+          role-to-assume: arn:aws:iam::897729101221:role/GithubActionsRole
+          aws-region: us-east-1
+
+      - name: Run AWS CLI command
+        run: aws sts get-caller-identity
